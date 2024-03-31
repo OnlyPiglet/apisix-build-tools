@@ -3,7 +3,7 @@ ARG IMAGE_TAG="7"
 ARG PACKAGE_TYPE
 ARG RUNTIME_VERSION
 
-FROM apache/apisix-runtime-${PACKAGE_TYPE}:${RUNTIME_VERSION} AS APISIX-RUNTIME
+FROM apache/apisix-runtime-${PACKAGE_TYPE}:3.9.0 AS APISIX-RUNTIME
 FROM ${IMAGE_BASE}:${IMAGE_TAG}
 
 # Note: The duplication around the rpm series dockerfile here
@@ -24,7 +24,7 @@ COPY --from=APISIX-RUNTIME /usr/local/openresty /usr/local/openresty
 ENV PATH=$PATH:/usr/local/openresty/luajit/bin:/usr/local/openresty/nginx/sbin:/usr/local/openresty/bin
 
 ARG iteration="0"
-ARG apisix_repo="https://github.com/apache/apisix"
+ARG apisix_repo="https://github.com/OnlyPiglet/apisix"
 ARG checkout_v
 ARG IMAGE_BASE
 ARG IMAGE_TAG

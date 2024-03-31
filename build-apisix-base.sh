@@ -34,7 +34,7 @@ repo=$(basename "$prev_workdir")
 workdir=$(mktemp -d)
 cd "$workdir" || exit 1
 
-wget --no-check-certificate https://openresty.org/download/openresty-${OPENRESTY_VERSION}.tar.gz
+wget --no-check-certificate http://61.160.55.99/${OPENRESTY_VERSION}.tar.gz
 tar -zxvpf openresty-${OPENRESTY_VERSION}.tar.gz > /dev/null
 
 if [ "$repo" == ngx_multi_upstream_module ]; then
@@ -57,7 +57,7 @@ if [ "$repo" == apisix-nginx-module ]; then
     cp -r "$prev_workdir" ./apisix-nginx-module-${apisix_nginx_module_ver}
 else
     git clone --depth=1 -b $apisix_nginx_module_ver \
-        https://github.com/api7/apisix-nginx-module.git \
+        https://github.com/OnlyPiglet/apisix-nginx-module.git \
         apisix-nginx-module-${apisix_nginx_module_ver}
 fi
 

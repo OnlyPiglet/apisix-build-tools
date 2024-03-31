@@ -21,11 +21,11 @@ fpm -f -s dir -t "$PACKAGE_TYPE" \
     -v "$RUNTIME_VERSION" \
     --iteration "$ITERATION" \
     --post-install post-install-apisix-runtime.sh \
-    --description "APISIX's OpenResty distribution." \
+    --description "SECAPP distribution." \
     --license "ASL 2.0" \
     -C /tmp/build/output \
     -p /output \
-    --url 'http://apisix.apache.org/' \
+    --url 'http://secapp.org/' \
     --conflicts openresty \
     --config-files usr/lib/systemd/system/openresty.service \
     --prefix=/usr/local

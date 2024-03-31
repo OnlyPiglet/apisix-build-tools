@@ -80,7 +80,7 @@ endif
 ### $(4) is code path
 ifneq ($(buildx), True)
 define build_runtime
-	docker build -t apache/$(1)-$(3):$(runtime_version) \
+	docker build -t apache/$(1)-$(3):3.9.0 \
 		--build-arg checkout_v=$(checkout) \
 		--build-arg VERSION=$(version) \
 		--build-arg RUNTIME_VERSION=$(runtime_version) \
