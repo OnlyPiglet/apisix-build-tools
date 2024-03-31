@@ -28,6 +28,7 @@ artifact="0"
 runtime_version="0"
 apisix_repo="https://github.com/apache/apisix"
 apisix_runtime_repo="https://github.com/api7/apisix-build-tools.git"
+me_apisix_runtime_repo="https://github.com/OnlyPiglet/apisix-build-tools.git"
 dashboard_repo="https://github.com/apache/apisix-dashboard"
 
 ### set the default image for deb package
@@ -236,7 +237,7 @@ package-dashboard-deb:
 .PHONY: build-apisix-runtime-rpm
 build-apisix-runtime-rpm:
 ifeq ($(app),apisix)
-	git clone -b $(runtime_version) $(apisix_runtime_repo) ./apisix-runtime
+	git clone -b $(runtime_version) $(me_apisix_runtime_repo) ./apisix-runtime
 	$(call build_runtime,apisix-runtime,apisix-runtime,rpm,"./apisix-runtime")
 	rm -fr ./apisix-runtime
 else
