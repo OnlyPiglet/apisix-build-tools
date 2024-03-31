@@ -91,7 +91,7 @@ define build_runtime
 endef
 else
 define build_runtime
-	docker buildx build -t apache/$(1)-$(3):$(runtime_version) \
+	docker buildx build -t apache/$(1)-$(3):3.9.0 \
 		--build-arg checkout_v=$(checkout) \
 		--build-arg VERSION=$(version) \
 		--build-arg RUNTIME_VERSION=$(runtime_version) \
@@ -236,7 +236,7 @@ package-dashboard-deb:
 .PHONY: build-apisix-runtime-rpm
 build-apisix-runtime-rpm:
 ifeq ($(app),apisix)
-	git clone -b apisix-runtime/$(runtime_version) $(apisix_runtime_repo) ./apisix-runtime
+	git clone -b $(runtime_version) $(apisix_runtime_repo) ./apisix-runtime
 	$(call build_runtime,apisix-runtime,apisix-runtime,rpm,"./apisix-runtime")
 	rm -fr ./apisix-runtime
 else
@@ -246,7 +246,7 @@ endif
 .PHONY: build-apisix-runtime-deb
 build-apisix-runtime-deb:
 ifeq ($(app),apisix)
-	git clone -b apisix-runtime/$(runtime_version) $(apisix_runtime_repo) ./apisix-runtime
+	git clone -b $(runtime_version) $(apisix_runtime_repo) ./apisix-runtime
 	$(call build_runtime,apisix-runtime,apisix-runtime,deb,"./apisix-runtime")
 	rm -fr ./apisix-runtime
 else
