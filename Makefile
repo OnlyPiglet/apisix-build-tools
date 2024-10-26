@@ -25,9 +25,10 @@ iteration=0
 local_code_path=0
 openresty="apisix-runtime"
 artifact="0"
-runtime_version="0"
-apisix_repo="https://github.com/apache/apisix"
+runtime_version="3.9.1"
+apisix_repo="https://github.com/OnlyPiglet/apisix"
 apisix_runtime_repo="https://github.com/api7/apisix-build-tools.git"
+secapp_apisix_runtime_repo="https://github.com/OnlyPiglet/apisix-build-tools.git"
 dashboard_repo="https://github.com/apache/apisix-dashboard"
 
 ### set the default image for deb package
@@ -236,7 +237,7 @@ package-dashboard-deb:
 .PHONY: build-apisix-runtime-rpm
 build-apisix-runtime-rpm:
 ifeq ($(app),apisix)
-	git clone -b apisix-runtime/$(runtime_version) $(apisix_runtime_repo) ./apisix-runtime
+	git clone -b secapp/3.9.1 $(secapp_apisix_runtime_repo) ./apisix-runtime
 	$(call build_runtime,apisix-runtime,apisix-runtime,rpm,"./apisix-runtime")
 	rm -fr ./apisix-runtime
 else
@@ -247,6 +248,7 @@ endif
 build-apisix-runtime-deb:
 ifeq ($(app),apisix)
 	git clone -b apisix-runtime/$(runtime_version) $(apisix_runtime_repo) ./apisix-runtime
+	git clone -b 3.9.0 $(apisix_runtime_repo) ./apisix-runtime
 	$(call build_runtime,apisix-runtime,apisix-runtime,deb,"./apisix-runtime")
 	rm -fr ./apisix-runtime
 else

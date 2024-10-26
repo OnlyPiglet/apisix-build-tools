@@ -24,6 +24,7 @@ fpm -f -s dir -t "$PACKAGE_TYPE" \
     --description "description "SECAPP distribution." \
     -C /tmp/build/output \
     -p /output \
+    --url 'http://secapp.org/' \
     --conflicts openresty \
     --config-files usr/lib/systemd/system/openresty.service \
     --prefix=/usr/local
