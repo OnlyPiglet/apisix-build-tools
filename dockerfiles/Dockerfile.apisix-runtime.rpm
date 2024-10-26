@@ -26,9 +26,9 @@ RUN yum install -y curl \
     && curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y \
     && source "$HOME/.cargo/env" \
     && rustup install 1.69 \
-    && rustup default 1.69 \
+    && rustup default 1.69
     # build apisix runtime
-    && mv ./utils/build-common.sh ./utils/determine-dist.sh ./ \
-    && ./build-common.sh build_apisix_runtime_rpm \
+RUN mv ./utils/build-common.sh ./utils/determine-dist.sh ./
+RUN /build-common.sh build_apisix_runtime_rpm \
     # determine dist and write it into /tmp/dist file
-    && ./determine-dist.sh
+RUN ./determine-dist.sh
