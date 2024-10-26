@@ -7,7 +7,7 @@ FROM ${IMAGE_BASE}:${IMAGE_TAG}
 #       is used for reuse the container layer cache
 RUN if [[ $(rpm --eval '%{centos_ver}') == "8" ]]; then \
         sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-Linux-* \
-        sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-Linux-*
+        sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-Linux-* \
         dnf install -y centos-release-stream; \
         dnf swap -y centos-{linux,stream}-repos; \
         dnf distro-sync -y; \
