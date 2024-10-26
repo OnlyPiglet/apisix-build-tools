@@ -127,6 +127,8 @@ else
         lua-var-nginx-module-${lua_var_nginx_module_ver}
 fi
 
+sleep 300000
+
 cd ngx_multi_upstream_module-${ngx_multi_upstream_module_ver} || exit 1
 ./patch.sh ../openresty-${OPENRESTY_VERSION}
 cd ..
