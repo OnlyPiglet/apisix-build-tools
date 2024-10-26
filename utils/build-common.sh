@@ -83,7 +83,7 @@ baseurl=https://mirrors.aliyun.com/centos/7/sclo/x86_64/rh/
 gpgcheck=1
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-SCLo" > /etc/yum.repos.d/CentOS-SCLo-scl-rh.repo
-        yum clean all && yum makecache
+        yum clean all && yum makecache 
         yum -y install devtoolset-9 patch wget git make sudo cpanminus
         set +eu
         source scl_source enable devtoolset-9
