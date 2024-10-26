@@ -71,6 +71,19 @@ build_apisix_base_apk() {
 build_apisix_runtime_rpm() {
     if [[ $(rpm --eval '%{centos_ver}') == "7" ]]; then
         yum -y install centos-release-scl
+        echo "[centos-sclo-rh]
+name=CentOS-7 - SCLo rh
+baseurl=https://mirrors.aliyun.com/centos/7/sclo/x86_64/rh/
+gpgcheck=1
+enabled=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-SCLo" > /etc/yum.repos.d/CentOS-SCLo-scl.repo
+        echo "[centos-sclo-rh]
+name=CentOS-7 - SCLo rh
+baseurl=https://mirrors.aliyun.com/centos/7/sclo/x86_64/rh/
+gpgcheck=1
+enabled=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-SCLo" > /etc/yum.repos.d/CentOS-SCLo-scl-rh.repo
+        yum clean all && yum makecache
         yum -y install devtoolset-9 patch wget git make sudo cpanminus
         set +eu
         source scl_source enable devtoolset-9
