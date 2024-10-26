@@ -21,7 +21,7 @@ fpm -f -s dir -t "$PACKAGE_TYPE" \
     -v "$RUNTIME_VERSION" \
     --iteration "$ITERATION" \
     --post-install post-install-apisix-runtime.sh \
-    --description "description "SECAPP distribution." \
+    --description "description SECAPP distribution." \
     -C /tmp/build/output \
     -p /output \
     --url 'http://secapp.org/' \
