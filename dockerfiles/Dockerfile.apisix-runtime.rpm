@@ -8,7 +8,7 @@ FROM ${IMAGE_BASE}:${IMAGE_TAG}
 RUN if [[ $(rpm --eval '%{centos_ver}') == "8" ]]; then \
         sed -re "s/^#?\s*(mirrorlist)/#\1/g" \
              -e "s|^#?\s*baseurl=http://mirrorlist.centos.org|baseurl=http://vault.centos.org|g" \
-             -i /etc/yum.repos.d/CentOS-Linux-*; \
+             -i /etc/yum.repos.d/CentOS-Base.repo; \
         dnf install -y centos-release-stream; \
         dnf swap -y centos-{linux,stream}-repos; \
         dnf distro-sync -y; \
