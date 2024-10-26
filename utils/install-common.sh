@@ -22,6 +22,7 @@ install_dependencies_rpm() {
         yum install -y --disablerepo=* --enablerepo=ubi-8-appstream-rpms --enablerepo=ubi-8-baseos-rpms wget tar gcc automake autoconf libtool make curl git which unzip sudo
         yum install -y --disablerepo=* --enablerepo=ubi-8-appstream-rpms --enablerepo=ubi-8-baseos-rpms yum-utils
     else
+        sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* && sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-* && yum clean all
         yum install -y wget tar gcc automake autoconf libtool make curl git which unzip sudo
         yum install -y epel-release
         yum install -y yum-utils readline-devel
