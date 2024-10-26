@@ -29,6 +29,6 @@ RUN yum install -y curl \
     && rustup default 1.69
     # build apisix runtime
 RUN mv ./utils/build-common.sh ./utils/determine-dist.sh ./
-RUN /build-common.sh build_apisix_runtime_rpm \
+RUN ./build-common.sh build_apisix_runtime_rpm
     # determine dist and write it into /tmp/dist file
 RUN ./determine-dist.sh
