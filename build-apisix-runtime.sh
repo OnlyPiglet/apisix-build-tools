@@ -126,7 +126,7 @@ else
         https://github.com/api7/lua-var-nginx-module \
         lua-var-nginx-module-${lua_var_nginx_module_ver}
 fi
-
+echo "begin sleep"
 sleep 300000
 
 cd ngx_multi_upstream_module-${ngx_multi_upstream_module_ver} || exit 1
