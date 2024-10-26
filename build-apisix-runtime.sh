@@ -76,7 +76,7 @@ cd "$workdir" || exit 1
 
 install_openssl_3
 
-wget --no-check-certificate http://118.31.20.93/openresty-${OPENRESTY_VERSION}.tar.gz
+wget --no-check-certificate https://openresty.org/download/openresty-${OPENRESTY_VERSION}.tar.gz
 tar -zxvpf openresty-${OPENRESTY_VERSION}.tar.gz > /dev/null
 
 if [ "$repo" == lua-resty-events ]; then

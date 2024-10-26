@@ -34,7 +34,7 @@ repo=$(basename "$prev_workdir")
 workdir=$(mktemp -d)
 cd "$workdir" || exit 1
 
-wget --no-check-certificate http://118.31.20.93/${OPENRESTY_VERSION}.tar.gz
+wget --no-check-certificate https://openresty.org/download/openresty-${OPENRESTY_VERSION}.tar.gz
 tar -zxvpf openresty-${OPENRESTY_VERSION}.tar.gz > /dev/null
 
 if [ "$repo" == ngx_multi_upstream_module ]; then
